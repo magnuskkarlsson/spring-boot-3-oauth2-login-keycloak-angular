@@ -92,6 +92,7 @@ public class OAuth2LoginSecurityConfig {
         }
 
         private void logoutFromKeycloak(OidcUser user) {
+            // https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.6/html-single/securing_applications_and_services_guide/index#logout
             String endSessionEndpoint = user.getIssuer() + "/protocol/openid-connect/logout";
             UriComponentsBuilder builder = UriComponentsBuilder //
                     .fromUriString(endSessionEndpoint) //
