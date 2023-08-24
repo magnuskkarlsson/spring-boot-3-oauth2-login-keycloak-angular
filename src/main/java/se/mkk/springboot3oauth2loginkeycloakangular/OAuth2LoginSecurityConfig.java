@@ -79,7 +79,7 @@ public class OAuth2LoginSecurityConfig {
     // ‘Access-Control-Allow-Origin’ missing) and OidcClientInitiatedLogoutSuccessHandler ignores Spring Security CORS
     // https://docs.spring.io/spring-security/reference/servlet/oauth2/login/advanced.html#oauth2login-advanced-oidc-logout
     // https://github.com/simasch/vaadin-keycloak/blob/main/src/main/java/ch/martinelli/demo/keycloak/security/KeycloakLogoutHandler.java
-    public class KeycloakLogoutHandler implements LogoutHandler {
+    private class KeycloakLogoutHandler implements LogoutHandler {
         private final RestTemplate restTemplate;
 
         public KeycloakLogoutHandler(RestTemplate restTemplate) {
@@ -142,7 +142,7 @@ public class OAuth2LoginSecurityConfig {
 
     // Spring OAuth2 uses default Scopes Not Roles for Authorization
     // org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter
-    public class KeycloakAuthoritiesConverter implements Converter<Jwt, Collection<GrantedAuthority>> {
+    private class KeycloakAuthoritiesConverter implements Converter<Jwt, Collection<GrantedAuthority>> {
 
         @Override
         public Collection<GrantedAuthority> convert(Jwt jwt) {
